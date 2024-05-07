@@ -1,0 +1,15 @@
+{
+  "name": "dnd-rest-api",
+  "version": "1.0.0",
+  "description": "DnD character creator using a REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amanda DiNoto",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "type": "module"
+}
