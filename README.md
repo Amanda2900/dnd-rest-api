@@ -10,5 +10,4 @@ In an effort to gain more practice with REST APIs, I decided to build this DnD c
 
 - Node.js
 - Express
-- HTML
-- CSS
+- PostgreSQL
