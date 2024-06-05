@@ -1,13 +1,12 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const indexRouter = require('./routes/index');
-const userRouter = require('./routes/users');
+import express from 'express';
+import indexRouter from './routes/index.js';
+import userRouter from './routes/users.js';
 
 const app = express();
 
-app.use(bodyParser.json())
+app.use(express.json());
 app.use(
-  bodyParser.urlencoded({
+  express.urlencoded({
     extended: true,
   })
 )

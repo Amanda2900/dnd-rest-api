@@ -1,9 +1,9 @@
-const express = require('express');
+import { Router } from 'express';
 
-const router = express.Router();
+const indexRouter = Router();
 
-router.get('/', async(req, res) => {
+indexRouter.get('/', async(req, res) => {
   res.json({ info: 'Node.js, Express, Postgres API'})
 })
 
-module.exports = router;
+export default indexRouter;
