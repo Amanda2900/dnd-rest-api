@@ -1,18 +1,22 @@
-import express, { json } from 'express';
+import express from 'express';
+import indexRouter from './routes/index.js';
+import userRouter from './routes/users.js';
 
 const app = express();
-app.use(json());
+
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+)
+
+app.use('/', indexRouter);
+app.use('/users', userRouter);
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-});
-
-app.get("/status", (req, res) => {
-  const status = {
-    "Status": "Running"
-  };
-  res.send(status);
+  console.log(`Server running on PORT:${PORT}`);
 });
 
