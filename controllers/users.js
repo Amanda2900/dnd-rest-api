@@ -1,6 +1,5 @@
 import pool from "../database.js";
 
-
 const getUsers = (request, response) => {
   pool.query('SELECT * FROM users', (error, results) => {
     if (error) {
@@ -21,16 +20,7 @@ const getUserById = (request, response) => {
   })
 }
 
-const createUser = (request, response) => {
-  const { name, password } = request.body
 
-  pool.query('INSERT INTO users (name, password) VALUES ($1, $2)', [name, password], (error, results) => {
-    if (error) {
-      throw error
-    }
-    response.status(201).send(`User added with ID: ${results.insertId}`)
-  })
-}
 
 const updateUser = (request, response) => {
   const id = parseInt(request.params.id)
