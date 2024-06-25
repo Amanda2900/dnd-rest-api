@@ -22,8 +22,4 @@ const loggingTwo = (req, res, next) => {
   next()
 }
 
-const weLovePancakes = (req, res, next) => {
-  console.log('I love pancake.')
-}
-
-export { logging, loggingTwo, weLovePancakes };
+export { logging, loggingTwo };

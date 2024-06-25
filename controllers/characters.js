@@ -20,6 +20,20 @@ const getCharacterById = (request, response) => {
   })
 };
 
+const createUser = async (request, response) => {
+  const { name, password } = request.body
+
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+
+    pool.query('INSERT INTO users (name, password) VALUES ($1, $2)', [name, hash], (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(201).send(`User added with ID: ${results.insertId}`);
+    })
+};
+
 const deleteCharacter = (request, response) => {
   const id = parseInt(request.params.id)
 
