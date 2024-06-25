@@ -19,7 +19,8 @@ const strategy = new LocalStrategy(function authUser(username, password, done) {
 });
 
 function checkAuthentication(req, res, next){
-  if(req.user){
+  console.log(req.isAuthenticated())
+  if(req.isAuthenticated()){
       next();
   } else{
       res.redirect("/auth/login");

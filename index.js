@@ -4,11 +4,11 @@ import * as dotenv from 'dotenv';
 import indexRouter from './routes/index.js';
 import userRouter from './routes/users.js';
 import characterRouter from './routes/characters.js';
-import session from 'express-session';
+import profileRouter from './routes/profile.js';
 import authRouter from './routes/auth.js';
+import session from 'express-session';
 import { logging, loggingTwo } from './middleware/logger.js';
 import { strategy } from './services/authService.js';
-
 
 
 dotenv.config();
@@ -32,7 +32,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: true }
+  // cookie: { secure: true },
   })
 );
 
@@ -58,6 +58,7 @@ app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/characters', characterRouter);
 app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 app.use(loggingTwo);
 
 
